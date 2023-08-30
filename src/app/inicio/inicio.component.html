@@ -1,0 +1,18 @@
+
+<div class="container" *ngIf="authService.isLoggedIn">
+    <h2>Carga tus imágenes</h2>
+    <p>Selecciona la carpeta de las imágenes</p>
+    <label for="folderSelector" class="btn">Cargar carpeta</label>
+    <input id="folderSelector" type="file" (change)="handleFolderSelection($event)" webkitdirectory directory multiple>
+    <div *ngIf="selectedFolder" class="selected-folder">
+      Carpeta seleccionada: {{ selectedFolder.name }}
+      <button class="btn-process" (click)="processFolder()">Procesar</button>
+    </div>
+    <div *ngIf="estimacionResultado" class="resultado">
+      La estimación de nitrógeno es: {{ estimacionResultado }} %
+      <button class="btn-new" (click)="reset()">Nueva Estimación</button>
+    </div>
+  </div>
+  <div *ngIf="!authService.isLoggedIn">
+    <p>Por favor, inicia sesión para acceder a esta página.</p>
+  </div> 

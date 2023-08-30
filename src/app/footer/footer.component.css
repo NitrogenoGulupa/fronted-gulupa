@@ -1,0 +1,47 @@
+
+.footer {
+    display: flex;
+    position: static;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #299E10;
+    color: #A8E9BB;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: 'Roboto Mono',monospace !important ; 
+  }
+  
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: 'Roboto Mono',monospace !important ; 
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #A8E9BB;
+    font-family: 'Roboto Mono',monospace !important ; 
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      position: static;
+      flex-direction: inherit;
+      text-align: center;
+    }
+  
+    .right {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+  
+  

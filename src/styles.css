@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Resetear margenes y padding por defecto */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #A8E9BB;
+    font-family: Roboto, Arial, sans-serif;
+  }
+  
+  /* Asegurarse de que el contenido ocupe toda la altura disponible */
+  app-root, app-login {
+    height: 100%;
+  }
+  
+  /* Estilo para el componente login */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    margin: 0; /* Eliminar margen para el componente login */
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
