@@ -1,4 +1,4 @@
-
+/*
 .login-container {
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@
     height: 439px;
     border-radius: 45px 0px 0px 45px;
     overflow: hidden;
-    margin-right: 0px; /* Espacio entre la imagen y el formulario */
+    margin-right: 0px; /* Espacio entre la imagen y el formulario 
   }
   
   .image-container img {
@@ -166,9 +166,6 @@
     cursor: pointer;
   }
   
-  /* ... Tus estilos existentes ... */
-  
-  /* Estilos responsivos */
   @media (max-width: 768px) {
     .login-container {
       flex-direction: column;
@@ -181,7 +178,7 @@
       width: 100%;
       height: auto;
       border-radius: 45px 45px 0px 0px;
-      margin-right: 0; /* Espacio entre la imagen y el formulario */
+      margin-right: 0;  Espacio entre la imagen y el formulario 
     }
     
     .login-left img {
@@ -197,4 +194,4 @@
     .modal-content {
       width: 80%;
     }
-  }
+  }*/

@@ -1,1 +1,7 @@
 
+<div class="recomendaciones-container">
+    <div *ngFor="let porcentaje of porcentajes" class="recomendacion">
+      <div class="porcentaje">{{ porcentaje }}</div>
+      <div class="texto">Texto relacionado al {{ porcentaje }}%</div>
+    </div>
+  </div>
