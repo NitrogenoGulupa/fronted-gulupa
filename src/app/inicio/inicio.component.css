@@ -7,6 +7,12 @@
     text-align: center;
     color: #0A2B72;
   } */
+  h2 {
+    font-size: 32px; /* Tamaño aumentado en 4 puntos */
+    color: #0A2B72;
+   
+  }
+  
   .container {
     display: flex;
     flex-direction: column;
@@ -23,7 +29,7 @@
   
   .btn {
     padding: 10px 20px;
-    background-color: #EB5481;
+    background-color:  #940074;;
     color: #d0e6d7;
     border: none;
     cursor: pointer;
@@ -42,7 +48,7 @@
   .btn-process {
    
     padding: 10px 20px;
-    background-color: #EB5481;
+    background-color: #940074;
     color: white;
     border: none;
     cursor: pointer;
@@ -62,7 +68,7 @@
   
   .btn-new {
     padding: 10px 20px;
-    background-color: #EB5481;
+    background-color: #940074;
     color: white;
     border: none;
     cursor: pointer;

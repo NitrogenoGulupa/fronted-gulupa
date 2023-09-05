@@ -1,25 +1,73 @@
 .recomendaciones-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 100%; /* Ajustar el ancho máximo */
+  margin-bottom: 200px;
+}
+
+
+h2 {
+  font-size: 32px; /* Tamaño aumentado en 4 puntos */
+  color: #0A2B72;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.cuadro-texto {
+  background-color: #415685;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 830px; /* Ancho máximo del cuadro de texto */
+  height: 20px;
+  margin: 20px 0;
+  border: 1px solid #0A2B72;
+  color: #ffff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5); /* Agregar sombra */
+}
+
+
+.recomendaciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px; /* Ancho máximo de las recomendaciones */
+}
+
+.recomendacion {
+  width: calc(33.33% - 10px); /* Aproximadamente 1/3 del ancho del contenedor */
+  margin-bottom: 20px;
+  padding: 2px;
+  background-color: #415685;
+  border: 1px solid #0A2B72;
+  text-align: center;
+  /*color: #363333;*/
+  color: #ffff;
+}
+
+.porcentaje-cuadro {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.texto-cuadro {
+  font-size: 16px;
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
   .recomendacion {
-    width: calc(33.33% - 10px); /* Aproximadamente 1/3 del ancho del contenedor */
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #EB5481;
-    text-align: center;
+    width: calc(50% - 10px); /* 2 columnas en pantallas pequeñas */
   }
-  
-  .porcentaje {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+}
+
+/* Media Query para pantallas aún más pequeñas */
+@media (max-width: 576px) {
+  .recomendacion {
+    width: 100%; /* 1 columna en pantallas muy pequeñas */
   }
-  
-  .texto {
-    font-size: 16px;
-  }
-  
+}

@@ -1,7 +1,14 @@
-
 <div class="recomendaciones-container">
+  <h2>Recomendaciones</h2>
+  
+  <div class="cuadro-texto">
+    A continuación se encuentran las recomendaciones a seguir de acuerdo con la estimación de nitrógeno obtenida.
+  </div>
+
+  <div class="recomendaciones">
     <div *ngFor="let porcentaje of porcentajes" class="recomendacion">
-      <div class="porcentaje">{{ porcentaje }}</div>
-      <div class="texto">Texto relacionado al {{ porcentaje }}%</div>
+      <div class="porcentaje-cuadro">{{ porcentaje }}</div>
+      <div class="texto-cuadro">Texto relacionado al {{ porcentaje }}%</div>
     </div>
   </div>
+</div>

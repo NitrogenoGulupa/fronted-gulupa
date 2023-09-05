@@ -20,6 +20,7 @@
   .title {
     margin-left: 20px;
     font-family: 'Righteous';
+    font-size: 32px; 
   }
   
   .logo img {
@@ -60,7 +61,7 @@
   }
   
   .dropdown-content a:hover {
-    background-color: #1e8b03;
+    background-color: #86EE70;
   }
   
   @media (max-width: 768px) {
