@@ -4,30 +4,29 @@
   align-items: center;
   padding: 20px;
   max-width: 100%; /* Ajustar el ancho máximo */
-  margin-bottom: 200px;
+  margin-bottom: 180px;
 }
 
 
 h2 {
   font-size: 32px; /* Tamaño aumentado en 4 puntos */
-  color: #0A2B72;
+  color: #8C5C03;
   margin-top: 0;
   padding-top: 10px;
 }
 
 .cuadro-texto {
-  background-color: #415685;
+  background-color: #b9d393;
   padding: 10px;
   text-align: center;
   width: 100%;
   max-width: 830px; /* Ancho máximo del cuadro de texto */
   height: 20px;
   margin: 20px 0;
-  border: 1px solid #0A2B72;
-  color: #ffff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5); /* Agregar sombra */
+  color: #8C5C03;
+  border-radius: 10px;
+ 
 }
-
 
 .recomendaciones {
   display: flex;
@@ -41,11 +40,12 @@ h2 {
   width: calc(33.33% - 10px); /* Aproximadamente 1/3 del ancho del contenedor */
   margin-bottom: 20px;
   padding: 2px;
-  background-color: #415685;
-  border: 1px solid #0A2B72;
+  background-color: #b9d393;
+  /*border: 1px solid #0A2B72;*/
   text-align: center;
   /*color: #363333;*/
-  color: #ffff;
+  color: #8C5C03;
+  border-radius: 10px;
 }
 
 .porcentaje-cuadro {
@@ -69,5 +69,21 @@ h2 {
 @media (max-width: 576px) {
   .recomendacion {
     width: 100%; /* 1 columna en pantallas muy pequeñas */
+  }
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .cuadro-texto {
+    padding: 5% 10%; /* Ajusta el relleno en porcentaje */
+    font-size: 18px; /* Ajusta el tamaño de fuente */
+  }
+}
+
+/* Media Query para pantallas aún más pequeñas */
+@media (max-width: 576px) {
+  .cuadro-texto {
+    padding: 10% 5%; /* Ajusta el relleno en porcentaje */
+    font-size: 16px; /* Ajusta el tamaño de fuente */
   }
 }

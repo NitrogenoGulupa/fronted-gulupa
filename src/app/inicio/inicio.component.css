@@ -9,7 +9,7 @@
   } */
   h2 {
     font-size: 32px; /* Tamaño aumentado en 4 puntos */
-    color: #0A2B72;
+    color: #8C5C03;
    
   }
   
@@ -19,8 +19,8 @@
     align-items: center;
     padding: 20px;
     text-align: center;
-    color: #0A2B72;
-    margin-bottom: 200px; /* Agrega margen inferior para dar espacio al footer */
+    color: #8C5C03;
+    margin-bottom: 180px; /* Agrega margen inferior para dar espacio al footer */
 }
   
   #folderSelector {
@@ -29,52 +29,52 @@
   
   .btn {
     padding: 10px 20px;
-    background-color:  #940074;;
-    color: #d0e6d7;
+    background-color:  #8C5C03;;
+    color: #F2F2F2;
     border: none;
     cursor: pointer;
     border-radius: 30px;
   }
   
   .btn:hover {
-    background-color: #0A2B72;
+    background-color: #593844;
   }
   
   .selected-folder {
     margin-top: 20px;
-    color: #0A2B72;
+    color: #8C5C03;
   }
   
   .btn-process {
    
     padding: 10px 20px;
-    background-color: #940074;
-    color: white;
+    background-color: #8C5C03;
+    color: #F2F2F2;
     border: none;
     cursor: pointer;
     border-radius: 30px;
   }
   
   .btn-process:hover {
-    background-color: #0A2B72;
+    background-color: #593844;
   }
   
 
 
 .resultado {
     margin-top: 20px;
-    color: #0A2B72;
+    color: #8C5C03;
   }
   
   .btn-new {
     padding: 10px 20px;
-    background-color: #940074;
-    color: white;
+    background-color: #8C5C03;
+    color: #F2F2F2;
     border: none;
     cursor: pointer;
     border-radius: 30px;
   }
   
   .btn-new:hover {
-    background-color: #0A2B72;
+    background-color: #8C5C03;
   } 

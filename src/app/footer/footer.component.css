@@ -5,8 +5,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1e8b03;
-    color: #d0e6d7;
+    background-color: #1B7302;
+    color: #F2F2F2;
     bottom: 0;
     left: 0;
     right: 0;
@@ -27,7 +27,7 @@
   
   .menu a {
     text-decoration: none;
-    color: #d0e6d7;
+    color: #F2F2F2;
     font-family: 'Roboto Mono',monospace !important ; 
   }
 
