@@ -10,7 +10,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    font-family: 'Roboto Mono',monospace !important ; 
+ 
   }
   
   .menu {
@@ -18,7 +18,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    font-family: 'Roboto Mono',monospace !important ; 
+    
   }
   
   .menu li {
@@ -28,15 +28,16 @@
   .menu a {
     text-decoration: none;
     color: #F2F2F2;
-    font-family: 'Roboto Mono',monospace !important ; 
+    
   }
 
-  
   @media (max-width: 768px) {
     .footer {
-      position: absolute;
+      position: relative; /* Cambia a posición relativa */
+      width: 100%; /* Ocupa todo el ancho de la pantalla */
       flex-direction: inherit;
       text-align: center;
+      margin-top: 20px; /* Ajusta el margen superior para dejar espacio para el contenido */
     }
   
     .right {
@@ -44,5 +45,6 @@
       text-align: center;
     }
   }
+  
   
   

@@ -6,7 +6,7 @@ html, body {
     padding: 0;
     height: 100%;
     background-color: #F2F2F2;
-    font-family: Roboto, Arial, sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif ;
   }
   
   /* Asegurarse de que el contenido ocupe toda la altura disponible */

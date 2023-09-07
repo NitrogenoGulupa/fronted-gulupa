@@ -1,0 +1,85 @@
+/* Estilos generales para el componente "Nosotros" */
+.container {
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 28px;
+    color: #8C5C03;
+    margin: 20px 0;
+  }
+  
+  .cuadro-texto {
+    background-color: #b9d393;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: justify;
+    font-size: 16px;
+    color: #593844;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #8C5C03;
+    margin: 40px 0 20px;
+  }
+  
+  .row {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para las cards */
+  .card {
+    margin: 20px 10px;
+    border:#593844;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #b9d393;
+  }
+
+  .card-title {
+    color: #593844;
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #593844;
+  }
+  
+  /* Estilos para las imágenes en las cards */
+  .card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Estilos para dispositivos más pequeños */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .cuadro-texto {
+      font-size: 14px;
+    }
+  
+    .card {
+      margin-bottom: 10px;
+    }
+  
+    .card-text {
+      font-size: 14px;
+    }
+  }
+  
