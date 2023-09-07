@@ -6,8 +6,7 @@
     align-items: center;
     background-color: #1B7302;
     padding: 10px 20px;
-    color: #F2F2F2
-    ;
+    color: #F2F2F2;
     height: 150px;
   
   
@@ -21,13 +20,13 @@
   .title {
     margin-left: 20px;
     font-family: 'Righteous';
-    font-size: 32px; 
+    font-size: 30px; 
   }
   
   .logo img {
     width: 100px; /* Ajusta el ancho según tus necesidades */
     height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
-    margin-right: 10px; /* Agrega margen derecho para separar el logo del título */
+    margin-right: 5px; /* Agrega margen derecho para separar el logo del título */
     vertical-align: middle; /* Alinea verticalmente el logo con el título */
   }
   .menu {
@@ -65,21 +64,57 @@
     background-color: #1B7302;
   }
   
-  @media (max-width: 768px) {
-    .dropdown-content {
-      position: static;
-      display: none;
-      width: 100%;
-    }
   
-    .menu:hover .dropdown-content {
-      display: block;
-    }
-    
-    .dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
+  
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu {
+    text-align: left; /* Alinear el texto a la izquierda */
   }
-  
+
+  .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    color: #F2F2F2;
+    font-size: 16px;
+    cursor: pointer;
+   /* padding: 10px 20px;  Añadir espaciado para hacer clic en el botón */
+  }
+
+  .dropdown-content {
+    display: none;
+    background-color: #1B7302;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%; /* Ocupar el ancho completo */
+  }
+
+  .menu:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .dropdown-content ul li {
+    margin: 0;
+  }
+
+  .dropdown-content a {
+    color: #F2F2F2;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #1B7302;
+  }
+}
