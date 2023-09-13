@@ -31,6 +31,27 @@
     
   }
 
+  .footer .right a {
+    font-family: 'Roboto', sans-serif;
+    color: #F2F2F2;
+    /*text-decoration: none;  Elimina el subrayado del enlace */
+  }
+
+  .footer .center a{
+    font-family: 'Roboto', sans-serif;
+    color: #F2F2F2;
+    text-decoration: underline;
+  }
+
+  .footer .left a{
+    color: #F2F2F2;
+  }
+  
+  .footer .right a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el mouse por encima */
+  }
+  
+
   @media (max-width: 768px) {
     .footer {
       position: relative; /* Cambia a posición relativa */

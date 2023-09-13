@@ -46,10 +46,21 @@
   .selected-folder {
     margin-top: 20px;
     color: #8C5C03;
+    padding: 10px; /* Añade un espacio interno alrededor del fondo */
   }
   
+  .selected-folder ul {
+    list-style: none; /* Oculta las viñetas (puntos) de la lista */
+    padding: 0; /* Elimina el espacio de relleno en la lista */
+    margin: 0; /* Elimina el margen de la lista */
+  }
+  
+  .file-name {
+    margin-left: 8px; /* Ajusta el margen a tu preferencia */
+  }
+
   .btn-process {
-   
+    margin-top: 20px;
     padding: 10px 20px;
     background-color: #8C5C03;
     color: #F2F2F2;
