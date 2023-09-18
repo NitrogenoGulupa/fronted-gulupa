@@ -12,6 +12,8 @@ export class InicioComponent {
   estimacionResultado: number | null = null;
    constructor(private http: HttpClient) {}
  
+ 
+
   // handleFolderSelection(event: any) {
   //   const selectedFiles = event.target.files;
   //   // Verifica si se seleccionaron exactamente 5 archivos
@@ -21,25 +23,38 @@ export class InicioComponent {
   //     this.selectedFolder.files = Array.from(selectedFiles);
   //   } else {
   //     // Muestra un mensaje de error o realiza la acción que consideres adecuada
-  //     console.error('Debes seleccionar exactamente 5 imágenes.');
+  //     console.error('Debes seleccionar una carpeta con exactamente 5 imágenes.');
+  //     alert('Debes seleccionar una carpeta con exactamente 5 imágenes.');
   //     // Puedes mostrar un mensaje al usuario o realizar otra acción según tus necesidades
   //   }
   // }
   
-  
-
-
   handleFolderSelection(event: any) {
     const selectedFiles = event.target.files;
+    let jpegImageCount = 0;
+  
     // Verifica si se seleccionaron exactamente 5 archivos
     if (selectedFiles.length === 5) {
-      // Continúa con la asignación de la carpeta seleccionada
-      this.selectedFolder = selectedFiles[0];
-      this.selectedFolder.files = Array.from(selectedFiles);
+      // Verifica si al menos uno de los archivos es una imagen JPEG
+      for (const file of selectedFiles) {
+        if (file.type === 'image/jpeg') {
+          jpegImageCount++;
+        }
+      }
+  
+      if (jpegImageCount > 0) {
+        // Continúa con la asignación de la carpeta seleccionada
+        this.selectedFolder = selectedFiles[0];
+        this.selectedFolder.files = Array.from(selectedFiles);
+      } else {
+        // Muestra un mensaje de error si no hay imágenes JPEG
+        alert('Debes seleccionar una carpeta con al menos una imagen JPEG.');
+        // Puedes realizar otras acciones según tus necesidades, como deshabilitar botones o realizar otras validaciones.
+      }
     } else {
-      // Muestra un mensaje de error o realiza la acción que consideres adecuada
-      console.error('Debes seleccionar exactamente 5 imágenes.');
-      // Puedes mostrar un mensaje al usuario o realizar otra acción según tus necesidades
+      // Muestra un mensaje de error si no se seleccionaron exactamente 5 archivos
+      alert('Debes seleccionar exactamente 5 archivos.');
+      // Puedes realizar otras acciones según tus necesidades, como deshabilitar botones o realizar otras validaciones.
     }
   }
   
