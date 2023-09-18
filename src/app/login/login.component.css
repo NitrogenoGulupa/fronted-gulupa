@@ -1,19 +1,18 @@
-/*
+
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #A8E9BB;
     height: 100vh;
   }
   
   .image-container {
     flex-shrink: 0;
     width: 500px;
-    height: 439px;
+    height: 400px;
     border-radius: 45px 0px 0px 45px;
     overflow: hidden;
-    margin-right: 0px; /* Espacio entre la imagen y el formulario 
+    margin-right: 0px; 
   }
   
   .image-container img {
@@ -37,7 +36,7 @@
   .curve-top,
   .curve-bottom {
     position: absolute;
-    background-color: #0A2B72;
+   
     width: 50px;
     height: 50px;
     border-radius: 0 100px 0 0;
@@ -55,8 +54,8 @@
   }
   
   .login-right {
-    background-color: #86EE70;
-    color: #0A2B72;
+    background-color: #B9D393;
+    color: #593844;
     padding: 20px;
     border-radius: 0px 45px 45px 0px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -64,7 +63,7 @@
     height: 400px;
     flex-shrink: 0;
     text-align: center;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto';
   }
   
   .welcome-text,
@@ -81,8 +80,7 @@
   
   .login-form input,
   .login-form button {
-    color:#0A2B72;
-    
+    color:#593844;
     height: 62px;
     margin-bottom: 15px;
     padding: 10px;
@@ -92,14 +90,19 @@
   }
   
   .login-form button {
-    background-color: #EB5481;
-    color: white;
+    background-color: #8C5C03;
+    color: #F2F2F2;
     cursor: pointer;
-    font-family: 'Roboto Mono',monospace !important ; 
+    font-family: 'Roboto' ; 
+    height: 40px; /* Altura ajustada */
+    margin-top: 10px; /* Margen superior ajustado */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px; /* Relleno ajustado */
   }
   
   .login-form a {
-    color: #0A2B72;
+    color: #593844;
     text-decoration: none;
   }
   
@@ -178,7 +181,7 @@
       width: 100%;
       height: auto;
       border-radius: 45px 45px 0px 0px;
-      margin-right: 0;  Espacio entre la imagen y el formulario 
+      margin-right: 0;  
     }
     
     .login-left img {
@@ -194,4 +197,4 @@
     .modal-content {
       width: 80%;
     }
-  }*/
+  }

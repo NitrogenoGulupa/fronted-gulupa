@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderFormComponent } from "./header-form/header-form.component";
 import { FooterComponent } from "./footer/footer.component";
+import { LoginComponent} from "./login/login.component";
 import { InicioComponent } from "./inicio/inicio.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
@@ -13,8 +14,8 @@ import { NosotrosComponent } from "./nosotros/nosotros.component";
 import { RecomendacionesComponent } from "./recomendaciones/recomendaciones.component";
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { NgxFileDropModule } from 'ngx-file-drop'; 
-import { LoginComponent} from "./login/login.component";
-import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
+import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
+
 
 @NgModule({
     declarations:[
@@ -23,10 +24,10 @@ import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
         HeaderFormComponent,
         InicioComponent,
         LoginComponent,
+        CrearCuentaComponent,
         NosotrosComponent,
         RecomendacionesComponent,
-        AyudaComponent,
-        CrearCuentaComponent
+        AyudaComponent
     ],
 
     imports:[

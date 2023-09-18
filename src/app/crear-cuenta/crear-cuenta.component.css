@@ -1,0 +1,52 @@
+.crear-cuenta-component {
+    background-color: #B9D393;
+    color: #593844;
+    padding: 20px;
+    border-radius: 45px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 400px;
+    flex-shrink: 0 auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto
+  }
+  
+  .welcome-text,
+  .login-text {
+    font-size: 32px;
+    font-weight: 400;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .login-form input,
+  .login-form button {
+    color: #593844;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-form button {
+    background-color: #8C5C03;
+    color: white;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .volver-link {
+    color: #593844;
+    text-decoration: none;
+  }
+  
