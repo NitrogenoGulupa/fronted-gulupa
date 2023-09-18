@@ -13,8 +13,8 @@ import { NosotrosComponent } from "./nosotros/nosotros.component";
 import { RecomendacionesComponent } from "./recomendaciones/recomendaciones.component";
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { NgxFileDropModule } from 'ngx-file-drop'; 
-
-// import { LoginComponent } from "./login/login.component";
+import { LoginComponent} from "./login/login.component";
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 
 @NgModule({
     declarations:[
@@ -22,12 +22,13 @@ import { NgxFileDropModule } from 'ngx-file-drop';
         FooterComponent,
         HeaderFormComponent,
         InicioComponent,
-        // LoginComponent,
+        LoginComponent,
         NosotrosComponent,
         RecomendacionesComponent,
-        AyudaComponent
-
+        AyudaComponent,
+        CrearCuentaComponent
     ],
+
     imports:[
         BrowserModule,
         AppRoutingModule,
