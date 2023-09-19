@@ -15,7 +15,8 @@ import { RecomendacionesComponent } from "./recomendaciones/recomendaciones.comp
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { NgxFileDropModule } from 'ngx-file-drop'; 
 import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
     declarations:[
@@ -37,11 +38,10 @@ import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
         HttpClientModule,
         ReactiveFormsModule,
         BrowserModule,
-        NgxFileDropModule
+        NgxFileDropModule,
+        BrowserAnimationsModule,
+        SweetAlert2Module.forRoot()
     ],
-    // providers:[
-    //     AuthService
-    // ],
     providers:[],
     bootstrap:[AppComponent]
 })

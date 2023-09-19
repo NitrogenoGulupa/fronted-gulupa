@@ -1,6 +1,9 @@
 
-import { Component } from '@angular/core';
-// import { AuthService } from '../auth.service';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { SweetAlertsService } from '../services/sweet-alerts.service';
+import { Router } from '@angular/router';
 
  @Component({
    selector: 'app-login',
@@ -9,33 +12,41 @@ import { Component } from '@angular/core';
  })
 
  export class LoginComponent {
- showModal: boolean = false;
+  fb = inject(FormBuilder)
+  supabase = inject(AuthService)
+  alert = inject(SweetAlertsService)
+  router =  inject(Router)
+  formLogin = this.fb.group({
+    email : ['',[Validators.required, Validators.email]],
+    password : ['',[Validators.required, Validators.minLength(8)]]
+  })
 
-openModal() {
-    this.showModal = true;
+  login() {
+    if (this.formLogin.controls.email.status === 'INVALID') {
+      this.alert.infoAlert('Correo invalido', 'error');
+      return;
+    }
+    if (this.formLogin.controls.password.status === 'INVALID') {
+      this.alert.infoAlert('Contraseña debe ser mayor a 8 caracteres', 'error');
+      return;
+    }
+    const { email, password } = this.formLogin.value;
+    console.log(email, password); 
+    if (email && password) {
+      // this.loading = true;
+      this.supabase
+        .login(email, password)
+        .then((res) => {
+          // this.loading = false;
+          console.log(res);
+          // this.alert.infoAlertNavigate('Verifica tu correo electrónico', 'Revisa el spam', 'Ok', 'info', '/login')
+        })
+        .catch((error) => {
+          console.log(error);
+          // this.loading = false;
+        });
+    }
+  }
 }
 
-closeModal() {
-this.showModal = false;
-}
-  username = '';
-   password = '';
-}
- //  constructor(private authService: AuthService) {}
-// //   login() {
-// //     this.authService.login(this.username, this.password).subscribe(response => {
-// //       if (response.success) {
-// //         this.showModal = true;
-// //         // Redirigir al usuario a la página de inicio
-// //         // Aquí también puedes guardar el token en el almacenamiento local.
-// //       } else {
-// //         // Mostrar un mensaje de error de inicio de sesión
-// //       }
-// //     });
-// //   }
-
-// //   closeModal() {
-// //     this.showModal = false;
-// //   }
-// // }
 

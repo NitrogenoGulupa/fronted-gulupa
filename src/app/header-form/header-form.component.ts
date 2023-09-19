@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 export class HeaderFormComponent {
   imglogo:string='assets/logo.png'
 
+  logOut(){
+    console.log('Logout');
+    
+  }
 
 }

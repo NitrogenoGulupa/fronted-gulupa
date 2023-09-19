@@ -9,11 +9,11 @@
     <div class="menu">
       <button class="dropbtn">MENÚ &#9662;</button>
       <div class="dropdown-content">
-        <a href="/login">Login</a>
-        <a href="/inicio">Inicio</a>
-        <a href="/recomendaciones">Recomendaciones</a>
-        <a href="/nosotros">Acerca de nosotros</a>
-
+        <a routerLink="/login">Login</a>
+        <a (click)="logOut()">LogOut</a>
+        <a routerLink="/inicio">Inicio</a>
+        <a routerLink="/recomendaciones">Recomendaciones</a>
+        <a routerLink="/nosotros">Acerca de nosotros</a>
       </div>
     </div>
   </nav>
