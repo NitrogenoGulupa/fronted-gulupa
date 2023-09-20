@@ -9,8 +9,10 @@
     <div class="menu">
       <button class="dropbtn">MENÚ &#9662;</button>
       <div class="dropdown-content">
-        <a routerLink="/login">Login</a>
-        <a (click)="logOut()">LogOut</a>
+        <a *ngIf="sesion ; else signIn" (click)="logOut()">Cerrar sesión</a>
+        <ng-template #signIn>
+        </ng-template>
+        <a routerLink="/login">Iniciar sesión</a>
         <a routerLink="/inicio">Inicio</a>
         <a routerLink="/recomendaciones">Recomendaciones</a>
         <a routerLink="/nosotros">Acerca de nosotros</a>

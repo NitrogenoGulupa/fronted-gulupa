@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 
@@ -8,18 +8,11 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./inicio.component.css']
 })
 
-export class InicioComponent implements OnInit{
+export class InicioComponent{
   selectedFolder: any;
   estimacionResultado: number | null = null;
   auth = inject(AuthService);
    constructor(private http: HttpClient) {}
- 
-  ngOnInit(): void {
-    this.auth.getUser().then(res=>{
-      console.log(res);
-      
-    })
-  }
   
   handleFolderSelection(event: any) {
     const selectedFiles = event.target.files;

@@ -36,7 +36,7 @@ export class CrearCuentaComponent {
         .then((res) => {
           this.loading = false;
           console.log(res);
-          // this.alert.infoAlertNavigate('Verifica tu correo electrónico', 'Revisa el spam', 'Ok', 'info', '/login')
+          this.alert.infoAlertNavigate('Verifica tu correo electrónico', 'Revisa el spam', 'Ok', 'info', '/login')
         })
         .catch((error) => {
           console.log(error);

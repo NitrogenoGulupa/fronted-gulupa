@@ -22,7 +22,11 @@ export class AuthService {
     return this.supabase.auth.signInWithPassword({ email, password });
   }
 
-  getUser(){
-    return this.supabase.auth.getSession()
+  getUser() {
+    return this.supabase.auth.getSession();
+  }
+
+  logOut() {
+    return this.supabase.auth.signOut();
   }
 }
