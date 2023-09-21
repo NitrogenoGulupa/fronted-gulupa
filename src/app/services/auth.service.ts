@@ -1,32 +1,47 @@
 import { Injectable } from '@angular/core';
 import { SupabaseClient, createClient } from '@supabase/supabase-js';
-import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private supabase: SupabaseClient;
+  private sesion$:Subject<boolean> = new Subject();
   constructor() {
     this.supabase = createClient(
-      'https://pxoiajdjcdrfhhnkeysi.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4b2lhamRqY2RyZmhobmtleXNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTM4NDQyNjcsImV4cCI6MjAwOTQyMDI2N30.TlfdzLzL9OuDxZHfnTsj6_S6APkv_pLYuzvVU8WX07s'
+      environment.supabase.url,
+      environment.supabase.anonKey
     );
+  }
+
+  get sesion() {
+    return this.sesion$.asObservable()
   }
 
   register(email: string, password: string) {
     return this.supabase.auth.signUp({ email, password });
   }
 
-  login(email: string, password: string) {
-    return this.supabase.auth.signInWithPassword({ email, password });
+  async login(email: string, password: string) {
+    const response = await this.supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (response.data.session) this.sesion$.next(true);
+    return response;
   }
 
-  getUser() {
-    return this.supabase.auth.getSession();
+  async logOut() {
+    const response = await this.supabase.auth.signOut();
+    if (response === null) this.sesion$.next(false);
+    return response;
   }
 
-  logOut() {
-    return this.supabase.auth.signOut();
+  async setSesion() {
+    const {data} = await this.supabase.auth.getSession();
+    data.session ? this.sesion$.next(true) : this.sesion$.next(false);
+    return data.session;
   }
 }

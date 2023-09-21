@@ -26,6 +26,10 @@ const routes: Routes = [
     component: CrearCuentaComponent,
     canActivate: [loginGuardGuard],
   },
+  {
+    path: '**',
+    redirectTo: '/login',
+  }
 ];
 
 @NgModule({

@@ -13,8 +13,10 @@ export class HeaderFormComponent implements OnInit {
   alert = inject(SweetAlertsService)
   supabase = inject(AuthService);
   router = inject(Router);
-  sesion = true;
-  ngOnInit() {}
+  sesion = this.supabase.sesion;
+  ngOnInit() {
+    // this.supabase.setSesion()
+  }
 
   logOut() {
     this.alert.loadingAlert('Cerrando sesión')

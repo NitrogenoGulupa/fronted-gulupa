@@ -7,8 +7,8 @@ export const homeGuardGuard: CanActivateFn = async () => {
   const supabase = inject(AuthService);
   const router = inject(Router);
   const alert = inject(SweetAlertsService)
-  let user = await supabase.getUser()
-  if(user.data.session){
+  let sesion = await supabase.setSesion()
+  if(sesion){
     return true
   }
   else{

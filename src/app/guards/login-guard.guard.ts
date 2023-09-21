@@ -3,17 +3,18 @@ import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 import { SweetAlertsService } from '../services/sweet-alerts.service';
 
-export const loginGuardGuard: CanActivateFn = async () => {
+export const loginGuardGuard: CanActivateFn = async (_, state) => {
   const supabase = inject(AuthService);
   const router = inject(Router);
-  const alert = inject(SweetAlertsService)
-  let user = await supabase.getUser()
-  if(user.data.session){
-    alert.infoAlert('Sesión ya iniciada', 'info')
-    router.navigate(['/inicio'])
-    return false
+  const alert = inject(SweetAlertsService);
+  let sesion = await supabase.setSesion()
+  const message = state.url==='/crear-cuenta' ? 'Primero debes cerrar sesión' : 'Ya has iniciado sesión'
+  if(!sesion){
+    return true
   }
   else{
-    return true
+    router.navigate(['/inicio'])
+    alert.infoAlert(message, 'info')
+    return false
   }
 };
