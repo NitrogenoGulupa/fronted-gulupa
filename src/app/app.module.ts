@@ -1,7 +1,6 @@
 
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-// import { AuthService } from './auth.service';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderFormComponent } from "./header-form/header-form.component";
@@ -17,6 +16,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.component';
 
 @NgModule({
     declarations:[
@@ -28,7 +28,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
         CrearCuentaComponent,
         NosotrosComponent,
         RecomendacionesComponent,
-        AyudaComponent
+        AyudaComponent,
+        RecuperarCuentaComponent,
+ 
     ],
 
     imports:[
