@@ -15,6 +15,8 @@ import { RecomendacionesComponent } from "./recomendaciones/recomendaciones.comp
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { NgxFileDropModule } from 'ngx-file-drop'; 
 import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
+import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.component';
+
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
         CrearCuentaComponent,
         NosotrosComponent,
         RecomendacionesComponent,
-        AyudaComponent
+        AyudaComponent,
+        RecuperarCuentaComponent,
+ 
     ],
 
     imports:[
