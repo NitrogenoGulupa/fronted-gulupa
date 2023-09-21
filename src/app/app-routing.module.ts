@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { homeGuardGuard } from './guards/home-guard.guard';
 import { loginGuardGuard } from './guards/login-guard.guard';
+import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.component';
 // import { AuthGuard } from './auth.guards';
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'crear-cuenta',
     component: CrearCuentaComponent,
+    canActivate: [loginGuardGuard],
+  },
+  {
+    path: 'recuperar-cuenta',
+    component: RecuperarCuentaComponent,
     canActivate: [loginGuardGuard],
   },
   {

@@ -44,4 +44,8 @@ export class AuthService {
     data.session ? this.sesion$.next(true) : this.sesion$.next(false);
     return data.session;
   }
+
+  resetPassword(email: string) {
+    return this.supabase.auth.resetPasswordForEmail(email)
+  }
 }
