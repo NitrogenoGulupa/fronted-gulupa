@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,27 +8,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./inicio.component.css']
 })
 
-export class InicioComponent {
+export class InicioComponent{
   selectedFolder: any;
   estimacionResultado: number | null = null;
+  auth = inject(AuthService);
    constructor(private http: HttpClient) {}
- 
- 
-
-  // handleFolderSelection(event: any) {
-  //   const selectedFiles = event.target.files;
-  //   // Verifica si se seleccionaron exactamente 5 archivos
-  //   if (selectedFiles.length === 5) {
-  //     // Continúa con la asignación de la carpeta seleccionada
-  //     this.selectedFolder = selectedFiles[0];
-  //     this.selectedFolder.files = Array.from(selectedFiles);
-  //   } else {
-  //     // Muestra un mensaje de error o realiza la acción que consideres adecuada
-  //     console.error('Debes seleccionar una carpeta con exactamente 5 imágenes.');
-  //     alert('Debes seleccionar una carpeta con exactamente 5 imágenes.');
-  //     // Puedes mostrar un mensaje al usuario o realizar otra acción según tus necesidades
-  //   }
-  // }
   
   handleFolderSelection(event: any) {
     const selectedFiles = event.target.files;

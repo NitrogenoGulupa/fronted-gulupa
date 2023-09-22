@@ -1,9 +1,35 @@
- <div class="recuperar-cuenta-component">
+<div class="container">
+  <div class="recuperar-cuenta-component" *ngIf="!loading; else spiner">
     <div class="login-text">Recupera contraseña</div>
-    <form class="login-form">
-      <input type="email" placeholder="Correo">
+    <form
+      [formGroup]="formForgotPassword"
+      class="login-form"
+      (ngSubmit)="resetPassword()"
+    >
+      <input
+        type="email"
+        placeholder="Correo"
+        formControlName="email"
+        autocomplete
+      />
       <button type="submit">Enviar correo</button>
-      <a href="#" class="volver-link">Volver al inicio de sesión</a>
+      <a routerLink="/login" class="volver-link">Volver al inicio de sesión</a>
     </form>
   </div>
-  
+  <ng-template #spiner>
+    <div class="lds-default">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </ng-template>
+</div>

@@ -1,12 +1,17 @@
-<div class="crear-cuenta-component">
-
+<div class="container">
+  <div *ngIf="!loading" class="crear-cuenta-component">
     <div class="login-text">Crea tu cuenta</div>
-    <form class="login-form">
-      <input type="email" placeholder="Correo">
-      <input type="text" placeholder="Usuario">
-      <input type="password" placeholder="Contraseña">
+    <form class="login-form" [formGroup]="formLogin" (ngSubmit)="register()">
+      <input type="email" placeholder="Correo" formControlName="email" />
+      <input
+        type="password"
+        placeholder="Contraseña"
+        formControlName="password"
+      />
       <button type="submit">Registrarse</button>
-      <a href="#" class="volver-link">Volver al inicio de sesión</a>
+      <a routerLink="/login" class="volver-link">Volver al inicio de sesión</a>
     </form>
   </div>
   
+  <div *ngIf="loading" class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
