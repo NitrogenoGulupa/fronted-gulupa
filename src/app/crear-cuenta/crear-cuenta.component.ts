@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, Renderer2, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-import { SweetAlertsService } from '../services/sweet-alerts.service';
+import { AuthService } from '../shared/services/auth.service';
+import { SweetAlertsService } from '../shared/services/sweet-alerts.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -41,7 +41,6 @@ export class CrearCuentaComponent {
         .register(email, password)
         .then((res) => {
           this.loading = false;
-          console.log(res);
           this.alert.infoAlertNavigate('Verifica tu correo electrónico', 'Revisa el spam', 'Ok', 'info', '/login')
         })
         .catch((error) => {

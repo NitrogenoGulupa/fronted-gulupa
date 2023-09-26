@@ -1,8 +1,8 @@
 
 import { Component, ElementRef, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-import { SweetAlertsService } from '../services/sweet-alerts.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { SweetAlertsService } from '../../shared/services/sweet-alerts.service';
 import { Router } from '@angular/router';
 
  @Component({

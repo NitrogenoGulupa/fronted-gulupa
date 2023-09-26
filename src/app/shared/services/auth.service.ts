@@ -46,6 +46,13 @@ export class AuthService {
   }
 
   resetPassword(email: string) {
-    return this.supabase.auth.resetPasswordForEmail(email)
+    return this.supabase.auth.resetPasswordForEmail(email,{
+      // redirectTo: environment.supabase.urlRedirect
+      redirectTo : 'http://localhost:4200/nueva-contra'
+    })
+  }
+
+  updatePassword(email:string, password:string){
+    return this.supabase.auth.updateUser({email,password})
   }
 }

@@ -3,20 +3,21 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HeaderFormComponent } from "./header-form/header-form.component";
-import { FooterComponent } from "./footer/footer.component";
-import { LoginComponent} from "./login/login.component";
-import { InicioComponent } from "./inicio/inicio.component";
+import { HeaderFormComponent } from "./componets/header-form/header-form.component";
+import { FooterComponent } from "./componets/footer/footer.component";
+import { LoginComponent} from "./pages/login/login.component";
+import { InicioComponent } from "./pages/inicio/inicio.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
-import { NosotrosComponent } from "./nosotros/nosotros.component";
-import { RecomendacionesComponent } from "./recomendaciones/recomendaciones.component";
-import { AyudaComponent } from './ayuda/ayuda.component';
+import { NosotrosComponent } from "./pages/nosotros/nosotros.component";
+import { RecomendacionesComponent } from "./pages/recomendaciones/recomendaciones.component";
+import { AyudaComponent } from './pages/ayuda/ayuda.component';
 import { NgxFileDropModule } from 'ngx-file-drop'; 
 import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.component';
+import { RecuperarCuentaComponent } from './pages/recuperar-cuenta/recuperar-cuenta.component';
+import { NuevaContraComponent } from './pages/nueva-contra/nueva-contra.component';
 
 @NgModule({
     declarations:[
@@ -30,6 +31,7 @@ import { RecuperarCuentaComponent } from './recuperar-cuenta/recuperar-cuenta.co
         RecomendacionesComponent,
         AyudaComponent,
         RecuperarCuentaComponent,
+        NuevaContraComponent,
  
     ],
 
