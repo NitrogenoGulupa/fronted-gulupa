@@ -1,4 +1,35 @@
-<div class="container">
+
+<div class="row bg-c-tertiary rounded-4 py-3 mx-2 px-2 " >
+  <div class="col-12 col-lg-6 align-self-center rounded-5 p-2 offset-3">
+    <h3 class="fw-bold text-center fs-1 text-c-gray mt-2">Crea tu cuenta</h3>
+       <form class="login-form" [formGroup]="formLogin" (ngSubmit)="register()">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+        <label for="floatingInput">Correo electrónico</label>
+      </div>
+      <div class="input-group mb-3">
+        <div class="form-floating">
+          <input #inputPassword type="password" class="form-control" id="floatingInputGroup1" placeholder="Username" formControlName="password">
+          <label for="floatingInputGroup1">Contraseña</label>
+        </div>
+      </div>
+      <div class="d-grid">
+      <button class="btn btn-c-secondary" type="submit">
+        Registrarse
+      </button>
+    </div>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6">
+        <a class="text-decoration fw-bold text-c-gray" routerLink="/login">Volver al inicio de sesión</a>
+      </div>
+    </div>
+    </form>
+  </div>
+
+<div *ngIf="loading" class="lds-default">
+
+
+<!-- <div class="container">
   <div *ngIf="!loading" class="crear-cuenta-component">
     <div class="login-text">Crea tu cuenta</div>
     <form class="login-form" [formGroup]="formLogin" (ngSubmit)="register()">
@@ -14,4 +45,4 @@
   </div>
   
   <div *ngIf="loading" class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-</div>
+</div> -->
