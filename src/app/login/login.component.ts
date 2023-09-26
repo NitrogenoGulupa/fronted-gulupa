@@ -61,7 +61,7 @@ import { Router } from '@angular/router';
         });
     }
   }
-
+  
   showPassword(){
     const pass = this.inputPassword.nativeElement
     if (this.view) {

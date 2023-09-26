@@ -1,0 +1,16 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+$custom-colors: (
+  "c-primary": #1b7302,
+  "c-secondary": #8c5c03,
+  "c-text": #f2f2f2,
+  "c-tertiary" : #97bf5a,
+  "c-quaternary" : #593844,
+  "c-gray" : #333333
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";

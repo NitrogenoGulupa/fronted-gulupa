@@ -6,10 +6,9 @@ import { SweetAlertsService } from '../services/sweet-alerts.service';
 @Component({
   selector: 'app-header-form',
   templateUrl: './header-form.component.html',
-  styleUrls: ['./header-form.component.css'],
+  styleUrls : ['./header-form.component.css']
 })
 export class HeaderFormComponent implements OnInit {
-  imglogo: string = 'assets/logo.png';
   alert = inject(SweetAlertsService)
   supabase = inject(AuthService);
   router = inject(Router);

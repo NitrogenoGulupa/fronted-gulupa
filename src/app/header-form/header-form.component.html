@@ -1,23 +1,30 @@
-
-<nav class="navbar">
-    <div class="logo">
-      <img [src]="imglogo" alt="Logo de la aplicación">
-    </div>
-    <div class="title">
-      <h1>NITRÓGENO EN GULUPA</h1>
-    </div>
-    <div class="menu">
-      <button class="dropbtn">MENÚ &#9662;</button>
-      <div class="dropdown-content">
-        <a routerLink="/inicio">Inicio</a>
-        <a routerLink="/recomendaciones">Recomendaciones</a>
-        <a routerLink="/nosotros">Acerca de nosotros</a>
-        <a *ngIf="sesion | async ; else signIn" (click)="logOut()">Cerrar sesión</a>
-        <ng-template #signIn>
-          <a routerLink="/login">Iniciar sesión</a>
-        </ng-template>
+<nav class="navbar bg-c-primary" style="height:120px">
+  <div class="container-fluid">
+    <a class="navbar-brand text-c-text fs-2" routerLink="/inicio">
+      <img class="d-none d-md-inline" src="assets/logo.png" alt="Gulupa" width="70" />
+      NITROGENO EN GULUPA
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fs-2" id="offcanvasNavbarLabel">Menú</h5>
+        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/incio">Inicio</a>
+            <a class="nav-link active" aria-current="page" routerLink="/recomendaciones">Recomendaciones</a>
+            <a class="nav-link active" aria-current="page" routerLink="/nosotros">Acerca de nosotros</a>
+            <a class="nav-link active" aria-current="page" *ngIf="sesion | async; else signIn"(click)="logOut()">Cerrar sesión</a>
+            <ng-template #signIn>
+            <a class="nav-link active" aria-current="page">Iniciar sesión</a>
+            </ng-template>
+          </li>
+        </ul>
       </div>
     </div>
-  </nav>
-  
-  
+  </div>
+</nav>
