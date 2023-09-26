@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { SweetAlertsService } from '../services/sweet-alerts.service';
@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class CrearCuentaComponent {
   loading = false;
+  view = false;
+  render2 = inject(Renderer2);
   fb = inject(FormBuilder);
   supabase = inject(AuthService);
   alert = inject(SweetAlertsService);
@@ -18,7 +20,10 @@ export class CrearCuentaComponent {
   formLogin = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
-  });
+  })
+
+  @ViewChild('inputPassword') inputPassword!: ElementRef;;
+  
 
   register() {
     if (this.formLogin.controls.email.status === 'INVALID') {
@@ -45,4 +50,17 @@ export class CrearCuentaComponent {
         });
     }
   }
+  showPassword(){
+    const pass = this.inputPassword.nativeElement
+    if (this.view) {
+      this.render2.setProperty(pass, 'type', 'password')
+    }
+    else {
+      this.render2.setProperty(pass, 'type', 'text')
+    }
+    this.view = !this.view
+  }
+
+
+
 }
