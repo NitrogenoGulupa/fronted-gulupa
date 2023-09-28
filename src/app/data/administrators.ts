@@ -1,0 +1,1 @@
+export const admins = ['cca9e6fb-8888-48da-be9b-8e1a246e4e45']

@@ -10,12 +10,15 @@ import { homeGuardGuard } from './shared/guards/home-guard.guard';
 import { loginGuardGuard } from './shared/guards/login-guard.guard';
 import { RecuperarCuentaComponent } from './pages/recuperar-cuenta/recuperar-cuenta.component';
 import { NuevaContraComponent } from './pages/nueva-contra/nueva-contra.component';
+import { createAccountGuard } from './shared/guards/create-account.guard';
+import { resetPasswordGuard } from './shared/guards/reset-password.guard';
+import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent, canActivate: [homeGuardGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [] },
+  { path: 'login', component: LoginComponent, canActivate: [loginGuardGuard] },
   {
     path: 'recomendaciones',
     component: RecomendacionesComponent,
@@ -26,21 +29,21 @@ const routes: Routes = [
   {
     path: 'crear-cuenta',
     component: CrearCuentaComponent,
-    canActivate: [],
+    canActivate: [createAccountGuard],
   },
   {
     path: 'recuperar-cuenta',
     component: RecuperarCuentaComponent,
-    canActivate: [],
+    canActivate: [loginGuardGuard],
   },
   {
     path: 'nueva-contra',
     component: NuevaContraComponent,
-    // canActivate: [loginGuarduard],
+    canActivate: [resetPasswordGuard],
   },
   {
     path: '**',
-    redirectTo: '/login',
+    component: ForbiddenComponent,
   },
 ];
 

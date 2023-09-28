@@ -39,10 +39,11 @@ export class RecuperarCuentaComponent {
         if (error) {
           this.loading = false;
           console.log(error);
+        this.alert.infoAlert('Ha ocurrido un error, intentalo mas tarde', 'error');
         }
       } catch (error) {
         this.loading = false;
-        this.alert.infoAlert('Ha ocurrido un error', 'error');
+        this.alert.infoAlert('Ha ocurrido un error de conexión', 'error');
       }
       this.formForgotPassword.reset();
     }

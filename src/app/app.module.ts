@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { RecuperarCuentaComponent } from './pages/recuperar-cuenta/recuperar-cuenta.component';
 import { NuevaContraComponent } from './pages/nueva-contra/nueva-contra.component';
+import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 
 @NgModule({
     declarations:[
@@ -32,6 +33,7 @@ import { NuevaContraComponent } from './pages/nueva-contra/nueva-contra.componen
         AyudaComponent,
         RecuperarCuentaComponent,
         NuevaContraComponent,
+        ForbiddenComponent,
  
     ],
 
