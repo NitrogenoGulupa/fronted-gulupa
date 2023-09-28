@@ -2,7 +2,7 @@
   <h2>Procesa tus imágenes</h2>
   <p>Selecciona tus imágenes para obtener la estimación de nitrógeno</p>
   <label for="folderSelector" class="btn">Selecciona la carpeta de las imágenes</label>
-  <input id="folderSelector" type="file" (change)="handleFolderSelection($event) " webkitdirectory directory multiple accept=".tif, .tiff, .jpeg, .jpg, image/tiff, image/tif">
+  <input id="folderSelector" type="file" (change)="handleFolderSelection($event)" webkitdirectory directory multiple accept=".tif, .tiff, .jpeg, .jpg, image/tiff, image/tif">
   <div *ngIf="selectedFolder" class="selected-folder">
      Carpeta seleccionada: <!-- {{ selectedFolder.name }} -->
     <ul>

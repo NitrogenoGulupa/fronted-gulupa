@@ -37,13 +37,16 @@ export class NuevaContraComponent {
     if (email && password){
       this.loading = true
       try {
-        const { data } = await this.supabase.updatePassword(email,password)
+        const { data, error } = await this.supabase.updatePassword(email,password)
+        console.log(data)
+        console.log(error);
         data.user 
         ? this.alert.infoAlertNavigate('Contraseña actualizada correctamente', 'Inicia sesión', 'Ok', 'info', '/login') 
         : this.alert.infoAlert('Ha ocurrido un error, intenta de nuevo', 'error')
         this.loading = false
-      } catch (error) {
+      } catch (e) {
         this.loading = false
+        console.log(e);
         this.alert.infoAlert('Ha ocurrido un error de conexión, intenta de nuevo', 'error')
       }
     }

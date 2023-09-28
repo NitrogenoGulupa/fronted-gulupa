@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { SweetAlertsService } from '../../shared/services/sweet-alerts.service';
@@ -8,14 +8,12 @@ import { SweetAlertsService } from '../../shared/services/sweet-alerts.service';
   templateUrl: './header-form.component.html',
   styleUrls : ['./header-form.component.css']
 })
-export class HeaderFormComponent implements OnInit {
+export class HeaderFormComponent {
   alert = inject(SweetAlertsService)
   supabase = inject(AuthService);
   router = inject(Router);
   sesion = this.supabase.sesion;
-  ngOnInit() {
-    // this.supabase.setSesion()
-  }
+  admin = this.supabase.admin;
 
   logOut() {
     this.alert.loadingAlert('Cerrando sesión')
@@ -26,6 +24,7 @@ export class HeaderFormComponent implements OnInit {
       })
       .catch((error) => {
         console.log(error);
+        this.alert.infoAlert('Error al cerra la sesión, intentalo de nuevo', 'error');
       });
   }
 }

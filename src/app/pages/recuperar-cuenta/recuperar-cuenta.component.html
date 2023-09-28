@@ -1,36 +1,41 @@
 <div class="row rounded-4 py-3 mx-2 px-2">
-  <div class="col-md-6 offset-md-3 bg-c-tertiary align-self-center rounded-5 p-4">
-  <h3 class="fw-bold text-center fs-1 text-c-gray mt-2">Recuperar contraseña</h3>
-  <p class="text-center" > Ingresa tu correo para recuperar la contraseña</p>
-  <form class="login-form" [formGroup]="formForgotPassword" class="login-form" (ngSubmit)="resetPassword()">
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email" />
-      <label for="floatingInput">Correo electrónico</label>
-    </div>
-    <div class="d-grid" *ngIf="!loading; else loadButton">
-      <button class="btn btn-c-secondary" type="submit">
-        Enviar correo
-      </button>
-    </div>
-    <ng-template #loadButton>
-      <div class="d-grid">
-        <button class="btn btn-c-secondary" type="button" disabled>
-          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-          <span role="status"> Enviando correo...</span>
-        </button>
+  <div
+    class="col-md-6 offset-md-3 bg-c-tertiary align-self-center rounded-5 p-4"
+  >
+    <h3 class="fw-bold text-center fs-1 text-c-gray mt-2">
+      Recuperar contraseña
+    </h3>
+    <p class="text-center">Ingresa tu correo para recuperar la contraseña</p>
+    <form
+      class="login-form"
+      [formGroup]="formForgotPassword"
+      class="login-form"
+      (ngSubmit)="resetPassword()"
+    >
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+          formControlName="email"
+        />
+        <label for="floatingInput">Correo electrónico</label>
       </div>
-    </ng-template>
-      <a class="text-center d-block fw-bold text-c-gray mt-2" routerLink="/nueva-contra">Nueva contraseña</a>
-   
+      <div class="d-grid" *ngIf="!loading; else loadButton">
+        <button class="btn btn-c-secondary" type="submit">Enviar correo</button>
+      </div>
+      <ng-template #loadButton>
+        <div class="d-grid">
+          <button class="btn btn-c-secondary" type="button" disabled>
+            <span
+              class="spinner-border spinner-border-sm"
+              aria-hidden="true"
+            ></span>
+            <span role="status"> Enviando correo...</span>
+          </button>
+        </div>
+      </ng-template>
     </form>
- 
   </div>
 </div>
-
-
-
-
-
-
-
-

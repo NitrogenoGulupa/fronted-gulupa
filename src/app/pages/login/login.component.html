@@ -1,8 +1,8 @@
 <div class="row bg-c-tertiary rounded-4 py-3 mx-2 px-2">
-  <div class="col-12 col-lg-6 align-self-center rounded-5 p-1">
+  <div class="col-12 col-md-6 align-self-center rounded-5 p-1">
     <img src="../../assets/gulupa.png" class="rounded-5 shadow-lg img-fluid image-container">
   </div>
-  <div class="col-12 col-lg-6 align-self-center">
+  <div class="col-12 col-md-6 align-self-center">
     <h3 class="fw-bold text-center fs-1 text-c-gray mt-2">Bienvenido</h3>
     <form [formGroup]="formLogin" (ngSubmit)="login()">
       <div class="form-floating mb-3">
@@ -36,11 +36,8 @@
       </ng-template>
     </form>
     <div class="row mt-4">
-      <div class="col-12 col-sm-6">
+      <div class="col-12">
         <p class="text-center fw-semibold">¿Has olvidado tú contraseña? <br> <a class="text-decoration fw-bold text-c-gray" routerLink="/recuperar-cuenta">Recuperar cuenta</a></p>
-      </div>
-      <div class="col-12 col-sm-6">
-        <p class="text-center fw-semibold">¿Aún no tienes cuenta? <br> <a class="text-decoration fw-bold text-c-gray" routerLink="/crear-cuenta">Crear cuenta</a></p>
       </div>
     </div>
   </div>

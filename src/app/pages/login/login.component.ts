@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, OnInit, Renderer2, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { SweetAlertsService } from '../../shared/services/sweet-alerts.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
    styleUrls: ['./login.component.css']
  })
 
- export class LoginComponent implements OnInit {
+ export class LoginComponent  {
   loading = false
   view = false
   render2 = inject(Renderer2)
@@ -26,9 +26,6 @@ import { Router } from '@angular/router';
 
   @ViewChild('inputPassword') inputPassword!: ElementRef;
 
-  ngOnInit(): void {
-    this.alert.closeAllAlerts()
-  }
 
   login() {
     if (this.formLogin.controls.email.status === 'INVALID') {
@@ -46,8 +43,6 @@ import { Router } from '@angular/router';
         .login(email, password)
         .then(({data, error}) => {
           this.loading = false;
-          console.log(error);
-          
           if (error){
             const message = error.message == 'Email not confirmed' ? 'Correo sin confirmar' : 'Credenciales inválidas' 
             this.alert.infoAlert(message,'error')

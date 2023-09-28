@@ -7,14 +7,15 @@ export const loginGuardGuard: CanActivateFn = async (_, state) => {
   const supabase = inject(AuthService);
   const router = inject(Router);
   const alert = inject(SweetAlertsService);
-  let sesion = await supabase.setSesion()
+  let session = await supabase.setSesion()
   const message = state.url==='/crear-cuenta' ? 'Primero debes cerrar sesión' : 'Ya has iniciado sesión'
-  if(!sesion){
+  if(!session){
     return true
   }
   else{
     router.navigate(['/inicio'])
-    alert.infoAlert(message, 'info')
+    alert.infoAlert(message,'error')
     return false
   }
+  
 };
