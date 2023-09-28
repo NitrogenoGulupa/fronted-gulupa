@@ -29,8 +29,7 @@ export class InicioComponent{
   
       if (jpegImageCount > 0) {
         // Continúa con la asignación de la carpeta seleccionada
-        this.selectedFolder = selectedFiles[0];
-        this.selectedFolder.files = Array.from(selectedFiles);
+        this.selectedFolder = selectedFiles;
       } else {
         // Muestra un mensaje de error si no hay imágenes JPEG
         alert('Debes seleccionar una carpeta con al menos una imagen JPEG.');
@@ -48,7 +47,8 @@ export class InicioComponent{
     // Crea un objeto FormData para enviar la carpeta de imágenes
     const formData = new FormData();
     formData.append('carpeta', this.selectedFolder);
-
+    console.log(formData);
+    
     // Realiza la solicitud POST a la API Flask
     this.http.post<any>('http://localhost:5000/procesar_carpeta', formData).subscribe(
       (response) => {

@@ -8,7 +8,8 @@ $custom-colors: (
   "c-text": #f2f2f2,
   "c-tertiary" : #97bf5a,
   "c-quaternary" : #593844,
-  "c-gray" : #333333
+  "c-gray" : #333333,
+  "c-tertiary2": #DCF2BB
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
