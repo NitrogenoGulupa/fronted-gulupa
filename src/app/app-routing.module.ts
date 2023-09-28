@@ -5,12 +5,12 @@ import { RecomendacionesComponent } from './pages/recomendaciones/recomendacione
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { AyudaComponent } from './pages/ayuda/ayuda.component';
 import { LoginComponent } from './pages/login/login.component';
-import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
+import { CrearCuentaComponent } from './pages/crear-cuenta/crear-cuenta.component';
 import { homeGuardGuard } from './shared/guards/home-guard.guard';
 import { loginGuardGuard } from './shared/guards/login-guard.guard';
 import { RecuperarCuentaComponent } from './pages/recuperar-cuenta/recuperar-cuenta.component';
 import { NuevaContraComponent } from './pages/nueva-contra/nueva-contra.component';
-// import { AuthGuard } from './auth.guards';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

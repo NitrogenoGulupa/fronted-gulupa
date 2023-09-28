@@ -13,7 +13,7 @@ import { NosotrosComponent } from "./pages/nosotros/nosotros.component";
 import { RecomendacionesComponent } from "./pages/recomendaciones/recomendaciones.component";
 import { AyudaComponent } from './pages/ayuda/ayuda.component';
 import { NgxFileDropModule } from 'ngx-file-drop'; 
-import { CrearCuentaComponent } from "./crear-cuenta/crear-cuenta.component";
+import { CrearCuentaComponent } from "./pages/crear-cuenta/crear-cuenta.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { RecuperarCuentaComponent } from './pages/recuperar-cuenta/recuperar-cuenta.component';
