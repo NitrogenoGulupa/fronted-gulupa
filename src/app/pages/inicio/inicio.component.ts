@@ -1,69 +1,122 @@
 import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../shared/services/auth.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { SweetAlertsService } from 'src/app/shared/services/sweet-alerts.service';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  styleUrls: ['./inicio.component.css'],
 })
+export class InicioComponent {
+  private alert = inject(SweetAlertsService);
+  private sanitizer = inject(DomSanitizer);
+  files: File[] = [];
+  preview: string | ArrayBuffer | null = '';
+  tiffFiles: string[] = [];
 
-export class InicioComponent{
-  selectedFolder: any;
-  estimacionResultado: number | null = null;
-  auth = inject(AuthService);
-   constructor(private http: HttpClient) {}
-  
-  handleFolderSelection(event: any) {
-    const selectedFiles = event.target.files;
-    let jpegImageCount = 0;
-  
-    // Verifica si se seleccionaron exactamente 5 archivos
-    if (selectedFiles.length === 5) {
-      // Verifica si al menos uno de los archivos es una imagen JPEG
-      for (const file of selectedFiles) {
-        if (file.type === 'image/jpeg') {
-          jpegImageCount++;
+  async loadImages(event: any) {
+    const filesLoad = event.target.files;
+    if (filesLoad.length === 0) return;
+    if (filesLoad.length > 5) {
+      this.alert.infoAlert(
+        'Solo se permiten máximo 5 imágenes',
+        'error'
+      );
+      return;
+    }
+    let jpegImages: File[] = [];
+    for (const file of filesLoad) {
+      if (file.type !== 'image/tiff') {
+        jpegImages.push(file);
+      }
+    }
+    if (jpegImages.length > 1) {
+      this.alert.infoAlert(
+        'Solo se permiten cargar una imagen de tipo JPEG',
+        'error'
+      );
+      return;
+    }
+    if (this.files.length > 0) {
+      if (this.files.length + filesLoad.length > 5 && jpegImages.length === 0) {
+        this.alert.infoAlert(`Solo se permiten cargar 5 imágenes (${this.files.length}/5)`, 'error');
+        return;
+      }
+      let message = '';
+      for (const file of filesLoad) {
+        if (this.filterNames(this.files,file.name) === 0 && file.type !== 'image/tiff') {
+          const index = this.files.findIndex((f) => f.type === file.type);
+          if (index !== -1) this.files.splice(index, 1);
+          this.files.push(file);
+          const { base64 } = await this.extractBase64(file);
+          this.preview = base64;
+        } else if (this.filterNames(this.files,file.name) === 0 && this.tiffFiles.length < 4) {
+          this.files.push(file);
+          this.tiffFiles.push(file.name);
+        } else {
+          message += `"${file.name}" `;
         }
       }
-  
-      if (jpegImageCount > 0) {
-        // Continúa con la asignación de la carpeta seleccionada
-        this.selectedFolder = selectedFiles[0];
-        this.selectedFolder.files = Array.from(selectedFiles);
-      } else {
-        // Muestra un mensaje de error si no hay imágenes JPEG
-        alert('Debes seleccionar una carpeta con al menos una imagen JPEG.');
-        // Puedes realizar otras acciones según tus necesidades, como deshabilitar botones o realizar otras validaciones.
+      if (message !== '') {
+        this.tiffFiles.length === 4 
+        ? this.alert.infoAlert('No puedes cargar más de 4 imágenes TIF', 'error', 5000)
+        : this.alert.infoAlert('Las siguientes imágenes ya se encuentran cargadas: ' + message, 'info', 5000);
       }
     } else {
-      // Muestra un mensaje de error si no se seleccionaron exactamente 5 archivos
-      alert('Debes seleccionar exactamente 5 archivos.');
-      // Puedes realizar otras acciones según tus necesidades, como deshabilitar botones o realizar otras validaciones.
+      for (const file of filesLoad) {
+        if(this.tiffFiles.length < 4){
+          this.files.push(file);
+          if (file.type !== 'image/tiff') {
+            const { base64 } = await this.extractBase64(file);
+            this.preview = base64;
+          } else {
+            this.tiffFiles.push(file.name);
+          }
+        }
+        else{
+          this.alert.infoAlert('No puedes cargar más de 4 imágenes TIF', 'info', 5000);
+        }
+      }
     }
   }
-  
 
-  processFolder() {
-    // Crea un objeto FormData para enviar la carpeta de imágenes
-    const formData = new FormData();
-    formData.append('carpeta', this.selectedFolder);
-
-    // Realiza la solicitud POST a la API Flask
-    this.http.post<any>('http://localhost:5000/procesar_carpeta', formData).subscribe(
-      (response) => {
-        // Maneja la respuesta del servidor aquí
-        console.log('Respuesta del servidor:', response);
-        this.estimacionResultado = response.resultado;
-      },
-      (error) => {
-        console.error('Error en la solicitud:', error);
-      }
-    );
+  deleteTiff(index: number) {
+    const fileToDelete = this.tiffFiles[index];
+    const indexFile = this.files.findIndex((f) => f.name === fileToDelete);
+    this.files.splice(indexFile, 1);
+    this.tiffFiles.splice(index, 1);
   }
 
-  reset() {
-    this.estimacionResultado = null;
-    this.selectedFolder = null;
+  proccessImages() {
+    //todo: verificar que vayan 4 tiff y 1 jpeg
+    console.log(this.files);
+  }
+
+  extractBase64 = async (
+    $event: any
+  ): Promise<{ base64: string | ArrayBuffer | null }> =>
+    new Promise((resolve, reject) => {
+      try {
+        const unsafeImg = window.URL.createObjectURL($event);
+        const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+        const reader = new FileReader();
+        reader.readAsDataURL($event);
+        reader.onload = () => {
+          resolve({
+            base64: reader.result,
+          });
+        };
+        reader.onerror = (error) => {
+          resolve({
+            base64: null,
+          });
+        };
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+  filterNames(files: File[], fileName: string):number {
+    return files.filter((file) => file.name === fileName).length;
   }
 }

@@ -7,12 +7,12 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 export class SweetAlertsService {
   private router = inject(Router);
 
-  infoAlert(message: string = 'Mensaje', icon: SweetAlertIcon = 'success') {
+  infoAlert(message: string = 'Mensaje', icon: SweetAlertIcon = 'success', time = 3000) {
     const Toast = Swal.mixin({
       toast: true,
       position: 'center-end',
       showConfirmButton: false,
-      timer: 3000,
+      timer: time,
       timerProgressBar: false,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer);
