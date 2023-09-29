@@ -1,5 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, ElementRef, Renderer2, ViewChild, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { catchError, throwError } from 'rxjs';
+import { HttpService } from 'src/app/shared/services/http.service';
 import { SweetAlertsService } from 'src/app/shared/services/sweet-alerts.service';
 
 @Component({
@@ -10,9 +13,13 @@ import { SweetAlertsService } from 'src/app/shared/services/sweet-alerts.service
 export class InicioComponent {
   private alert = inject(SweetAlertsService);
   private sanitizer = inject(DomSanitizer);
+  private http = inject(HttpService)
+  private render2 = inject(Renderer2)
   files: File[] = [];
   preview: string | ArrayBuffer | null = '';
   tiffFiles: string[] = [];
+  processing = false
+  @ViewChild('inputFile') inputFile!:ElementRef
 
   async loadImages(event: any) {
     const filesLoad = event.target.files;
@@ -88,8 +95,48 @@ export class InicioComponent {
   }
 
   proccessImages() {
-    //todo: verificar que vayan 4 tiff y 1 jpeg
-    console.log(this.files);
+    let tiffs = 0;
+    let jpeg = 0;
+    for (const file of this.files) {
+      if(file.type === 'image/tiff'){
+        tiffs++;
+      }
+      else if(file.type === 'image/jpeg'){
+        jpeg++;
+      }
+    }
+    if(tiffs === 4 && jpeg === 1){
+      const formData = new FormData();
+      for (const file of this.files) {
+        formData.append('files', file);
+      }
+      this.processing = true;
+      this.http.postImages(formData)
+      .pipe(
+        catchError((err:HttpErrorResponse) => {
+          this.processing = false;
+          const {error, status} = err;          
+          if (status === 0) {
+            this.alert.infoAlert('Ha ocurrido un error de conexión', 'error')
+          }
+          else{
+            this.alert.infoAlert('Ha ocurrido un error: ' + error.error, 'error', 5000);
+          }
+          return throwError(() => new Error('Something bad happened; please try again later.'));
+        }
+      ))
+      .subscribe(({nitrogen})=>{
+        this.processing = false;
+        nitrogen = Number(nitrogen.toFixed(3))
+        const { title, text, imageUrl } = this.estimation(nitrogen);
+        this.alert.imageAlert(title, text, imageUrl);
+        this.resetFiles()
+      });
+    }
+    else{
+      this.alert.infoAlert('No se ha podido procesar la imagen. Debes cargar 4 imágenes TIFF y una JPEG.', 'error', 5000);
+      return
+    }
   }
 
   extractBase64 = async (
@@ -118,5 +165,42 @@ export class InicioComponent {
 
   filterNames(files: File[], fileName: string):number {
     return files.filter((file) => file.name === fileName).length;
+  }
+
+  estimation(nitrogen:number){
+    switch (true) {
+      case nitrogen <= 3.6:
+        return {
+          title: `Nivel de nitrógeno: ${nitrogen}% (Déficit)`,
+          text: 'Con una estimación de nitrógeno menor a este porcentaje la hoja se encuentra en un deficit, por lo tanto se debe hacer un plan de fertilización',
+          imageUrl: 'assets/low.png'
+        }
+      case nitrogen >3.6 && nitrogen <= 4.6:
+        return {
+          title: `Nivel de nitrógeno: ${nitrogen}% (Óptimo)`,
+          text: 'La estimacion entre estos porcentajes indican que la hoja se encuentra en un porcentaje óptimo, siga con el plan de fertilización que venía aplicando',
+          imageUrl: 'assets/medium.png'
+        }
+      case nitrogen > 4.6:
+        return {
+          title: `Nivel de nitrógeno: ${nitrogen}% (Exceso)`,
+          text: 'Con una estimación de nitrógeno mayor a este porcentaje la hoja se encuentra en exceso, no se puede realizar plan de fertilización',
+          imageUrl: 'assets/high.png'
+        }
+        default:
+          return {
+            title: `Falla en la estimación de nitrógeno`,
+            text: 'Intente cargar de nuevo las imágenes',
+            imageUrl: 'assets/low.png'
+          }
+    }
+  }
+
+  resetFiles(){
+    this.files = [];
+    this.preview = '';
+    this.tiffFiles = [];
+    const buttonInput = this.inputFile.nativeElement
+    this.render2.setProperty(buttonInput, 'value', '')
   }
 }

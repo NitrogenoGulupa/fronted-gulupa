@@ -56,6 +56,17 @@ export class SweetAlertsService {
     });
   }
 
+  imageAlert(title:string = 'Title', text:string = 'Recomendaciones', imageUrl:string){
+    Swal.fire({
+      title,
+      text,
+      imageUrl,
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: 'Nivel de nitrógeno',
+    })
+  }
+
   closeAllAlerts(){
     Swal.close()
   }

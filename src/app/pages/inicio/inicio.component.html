@@ -9,11 +9,17 @@
         Selecciona las imágenes
       </button>
       <ng-template #totalFiles>
-        <button class="btn btn-c-secondary rounded-5" (click)="proccessImages()">
+        <button class="btn btn-c-secondary rounded-5" (click)="proccessImages()" *ngIf="!processing; else processigButton">
           Procesar imágenes
         </button>
+        <ng-template #processigButton>
+          <button class="btn btn-c-secondary rounded-5" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span role="status">Procesando imágenes...</span>
+          </button>
+        </ng-template>
       </ng-template>
-      <input #inputFile type="file" class="d-none" accept="image/jpeg, image/tiff" multiple (change)="loadImages($event)">
+      <input #inputFile type="file" hidden accept="image/jpeg, image/tiff" multiple (change)="loadImages($event)">
     </div>
   </div>
 </div>
@@ -61,8 +67,3 @@
       </div>
     </div>
 </div>
-
-
-<button class="btn btn-c-secondary rounded-5" (click)="proccessImages()">
-  Procesar imágenes
-</button>
