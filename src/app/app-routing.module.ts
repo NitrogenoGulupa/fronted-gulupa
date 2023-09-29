@@ -17,7 +17,7 @@ import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'inicio', component: InicioComponent, canActivate: [] },
+  { path: 'inicio', component: InicioComponent, canActivate: [homeGuardGuard] },
   { path: 'login', component: LoginComponent, canActivate: [loginGuardGuard] },
   {
     path: 'recomendaciones',

@@ -68,7 +68,8 @@ export class InicioComponent {
         this.tiffFiles.length === 4 
         ? this.alert.infoAlert('No puedes cargar más de 4 imágenes TIF', 'error', 5000)
         : this.alert.infoAlert('Las siguientes imágenes ya se encuentran cargadas: ' + message, 'info', 5000);
-      } 
+      }
+    }
       else {
       for (const file of filesLoad) {
         if(this.tiffFiles.length < 4){
@@ -86,6 +87,7 @@ export class InicioComponent {
       }
     }
   }
+
   deleteTiff(index: number) {
     const fileToDelete = this.tiffFiles[index];
     const indexFile = this.files.findIndex((f) => f.name === fileToDelete);

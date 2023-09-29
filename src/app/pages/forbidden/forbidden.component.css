@@ -1,0 +1,6 @@
+.background{
+    background-image: url(../../../assets/perrito.jpg);
+    object-fit: cover;
+    background-size: 100% 100%;
+    min-height: 500px;
+}

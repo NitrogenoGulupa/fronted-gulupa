@@ -1,18 +1,13 @@
-<div class="row">
-
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <a class="btn btn-c-secondary  " routerLink="/inicio" role="button">Volver a inicio</a>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../../assets/perrito.jpg" class=" shadow-lg img-fluid image-container" alt="...">
-                <div class="fw-bold text-center fs-1 carousel-caption d-none d-md-block text-c-gray">
-                    <h5>ERROR 404 </h5>
-                    <p>Página no encontrada</p>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-</div>       
+<div class="row d-flex flex-column justify-content-between background">
+  <div class="col text-center pb-3 d-flex align-items-center flex-column">
+    <div class="mb-auto p-2 text-c-gray fw-bold fs-1">
+        ERROR 404
+    </div>
+    <div class="py-2 text-c-gray fs-4">Página no encontrada</div>
+    <div class="py-2">
+        <a routerLink="/inicio" class="btn btn-c-secondary rounded-4 px-4">
+            Volver
+        </a>
+    </div>
+  </div>
+</div>
