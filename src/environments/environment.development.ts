@@ -4,4 +4,7 @@ export const environment = {
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4b2lhamRqY2RyZmhobmtleXNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTM4NDQyNjcsImV4cCI6MjAwOTQyMDI2N30.TlfdzLzL9OuDxZHfnTsj6_S6APkv_pLYuzvVU8WX07s',
     urlRedirect: 'http://localhost:4200/nueva-contra'
   },
+  backend:{
+    url: 'http://localhost:5000/upload'
+  }
 };

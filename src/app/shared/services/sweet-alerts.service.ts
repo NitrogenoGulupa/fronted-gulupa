@@ -7,12 +7,12 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 export class SweetAlertsService {
   private router = inject(Router);
 
-  infoAlert(message: string = 'Mensaje', icon: SweetAlertIcon = 'success') {
+  infoAlert(message: string = 'Mensaje', icon: SweetAlertIcon = 'success', time = 3000) {
     const Toast = Swal.mixin({
       toast: true,
       position: 'center-end',
       showConfirmButton: false,
-      timer: 3000,
+      timer: time,
       timerProgressBar: false,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -54,6 +54,17 @@ export class SweetAlertsService {
         Swal.showLoading();
       },
     });
+  }
+
+  imageAlert(title:string = 'Title', text:string = 'Recomendaciones', imageUrl:string){
+    Swal.fire({
+      title,
+      text,
+      imageUrl,
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: 'Nivel de nitrógeno',
+    })
   }
 
   closeAllAlerts(){
