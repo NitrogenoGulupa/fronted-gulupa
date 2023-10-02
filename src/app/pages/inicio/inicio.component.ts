@@ -173,19 +173,19 @@ export class InicioComponent {
       case nitrogen <= 3.6:
         return {
           title: `Nivel de nitrógeno: ${nitrogen}% (Déficit)`,
-          text: 'Con una estimación de nitrógeno menor a este porcentaje la hoja se encuentra en un deficit, por lo tanto se debe hacer un plan de fertilización',
+          text: 'Con una estimación de nitrógeno menor a un porcentaje de 3.6% la hoja se encuentra en un deficit, por lo tanto se debe hacer un plan de fertilización',
           imageUrl: 'assets/low.png'
         }
       case nitrogen >3.6 && nitrogen <= 4.6:
         return {
           title: `Nivel de nitrógeno: ${nitrogen}% (Óptimo)`,
-          text: 'La estimacion entre estos porcentajes indican que la hoja se encuentra en un porcentaje óptimo, siga con el plan de fertilización que venía aplicando',
+          text: 'La estimacion entre los porcentajes de 3.6% y 4.6% indican que la hoja se encuentra en un porcentaje óptimo, siga con el plan de fertilización que venía aplicando',
           imageUrl: 'assets/medium.png'
         }
       case nitrogen > 4.6:
         return {
           title: `Nivel de nitrógeno: ${nitrogen}% (Exceso)`,
-          text: 'Con una estimación de nitrógeno mayor a este porcentaje la hoja se encuentra en exceso, no se puede realizar plan de fertilización',
+          text: 'Con una estimación de nitrógeno mayor 4.6% la hoja se encuentra en exceso, no se puede realizar plan de fertilización',
           imageUrl: 'assets/high.png'
         }
         default:
