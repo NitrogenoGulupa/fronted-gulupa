@@ -9714,6 +9714,10 @@ textarea.form-control-lg {
   z-index: 3 !important;
 }
 
+*{
+  font-family: sistema-ui
+  }
+
 @media (min-width: 576px) {
   .float-sm-start {
     float: left !important;
