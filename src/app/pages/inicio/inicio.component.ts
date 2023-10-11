@@ -170,22 +170,22 @@ export class InicioComponent {
 
   estimation(nitrogen:number){
     switch (true) {
-      case nitrogen <= 3.6:
+      case nitrogen <= 4.75:
         return {
           title: `Nivel de nitrógeno: ${nitrogen}% (Déficit)`,
-          text: 'Con una estimación de nitrógeno menor a un porcentaje de 3.6% la hoja se encuentra en un deficit, por lo tanto se debe hacer un plan de fertilización',
+          text: 'Con una estimación de nitrógeno menor a este porcentaje la hoja se encuentra en un déficit, por lo tanto, se debe realizar el plan de fertilización proporcionado por el ingeniero agrónomo teniendo en cuenta el requerimiento de nitrógeno para el cultivo que se encuentra entre 150-200 kg/ha y los contenidos de nitrógeno en el suelo de acuerdo con los análisis realizados de forma anual.',
           imageUrl: 'assets/low.png'
         }
-      case nitrogen >3.6 && nitrogen <= 4.6:
+      case nitrogen >4.75 && nitrogen <= 5.25:
         return {
           title: `Nivel de nitrógeno: ${nitrogen}% (Óptimo)`,
-          text: 'La estimacion entre los porcentajes de 3.6% y 4.6% indican que la hoja se encuentra en un porcentaje óptimo, siga con el plan de fertilización que venía aplicando',
+          text: 'La estimación entre estos porcentajes indica que la hoja se encuentra en un porcentaje óptimo, se recomienda seguir con el plan de fertilización proporcionado por el ingeniero agrónomo.',
           imageUrl: 'assets/medium.png'
         }
-      case nitrogen > 4.6:
+      case nitrogen > 5.25:
         return {
           title: `Nivel de nitrógeno: ${nitrogen}% (Exceso)`,
-          text: 'Con una estimación de nitrógeno mayor 4.6% la hoja se encuentra en exceso, no se puede realizar plan de fertilización',
+          text: 'Con una estimación de nitrógeno mayor a este porcentaje la hoja se encuentra en exceso, se propone ajustar el plan de fertilización establecido teniendo en cuenta los requerimientos de la planta y los contenidos del nitrógeno en el suelo de acuerdo con los análisis que se deben realizar anualmente.',
           imageUrl: 'assets/high.png'
         }
         default:
