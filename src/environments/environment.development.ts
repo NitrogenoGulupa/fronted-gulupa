@@ -1,10 +1,10 @@
 export const environment = {
   supabase: {
-    url: 'https://pxoiajdjcdrfhhnkeysi.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB4b2lhamRqY2RyZmhobmtleXNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTM4NDQyNjcsImV4cCI6MjAwOTQyMDI2N30.TlfdzLzL9OuDxZHfnTsj6_S6APkv_pLYuzvVU8WX07s',
-    urlRedirect: 'http://localhost:4200/nueva-contra'
+    url: 'https://miukkvbmolzkmedddnic.supabase.co',
+    anonKey:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pdWtrdmJtb2x6a21lZGRkbmljIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTcxMjI5NjUsImV4cCI6MjAxMjY5ODk2NX0.C2g4HFid-_8PXKTH_0u82_vhiMKs4PbPrST1xQR_8Ww',
+    urlRedirect: 'http://localhost:4200/nueva-contra',
   },
   backend:{
-    url: 'http://localhost:5000/upload'
+    url: 'https://api-gulupa.onrender.com/upload'
   }
 };

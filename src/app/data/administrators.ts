@@ -1,1 +1,1 @@
-export const admins = ['cca9e6fb-8888-48da-be9b-8e1a246e4e45']
+export const admins = ['71af4539-7623-488d-90a2-936fa6c6fa70']
