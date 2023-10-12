@@ -18,8 +18,7 @@ export class CrearCuentaComponent {
   alert = inject(SweetAlertsService);
   router = inject(Router);
   formLogin = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    email: ['', [Validators.required, Validators.email]]
   })
 
   @ViewChild('inputPassword') inputPassword!: ElementRef;;
@@ -30,18 +29,15 @@ export class CrearCuentaComponent {
       this.alert.infoAlert('Correo invalido', 'error');
       return;
     }
-    if (this.formLogin.controls.password.status === 'INVALID') {
-      this.alert.infoAlert('Contraseña debe ser mayor a 8 caracteres', 'error');
-      return;
-    }
-    const { email, password } = this.formLogin.value;
-    if (email && password) {
+    const { email } = this.formLogin.value;
+    if (email) {
       this.loading = true;
+      const password = "nitrogeno123"
       this.supabase
         .register(email, password)
-        .then((res) => {
+        .then(() => {
           this.loading = false;
-          this.alert.infoAlertNavigate('Verifica tu correo electrónico', 'Revisa el spam', 'Ok', 'info', '/login')
+          this.alert.infoAlert('Correo electrónico envíado','info')
         })
         .catch((error) => {
           console.log(error);
@@ -59,7 +55,4 @@ export class CrearCuentaComponent {
     }
     this.view = !this.view
   }
-
-
-
 }

@@ -41,7 +41,7 @@ export class NuevaContraComponent {
         console.log(data)
         console.log(error);
         data.user 
-        ? this.alert.infoAlertNavigate('Contraseña actualizada correctamente', 'Inicia sesión', 'Ok', 'info', '/login') 
+        ? this.alert.infoAlertNavigate('Contraseña actualizada correctamente', 'Inicia sesión', 'Ok', 'info', '/inicio') 
         : this.alert.infoAlert('Ha ocurrido un error, intenta de nuevo', 'error')
         this.loading = false
       } catch (e) {
